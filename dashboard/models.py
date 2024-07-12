@@ -2,12 +2,12 @@ from django.contrib.auth.models import User
 from django.db import models
 
 CATEGORY = (
-    ('food', '食品'),
-    ('mobile', '手机'),
-    ('electronics', '电器'),
-    ('book', '生活用品'),
-    ('edutainment', '教育娱乐'),
-    ('social_services', '社会服务'),
+    ('Fighter', '歼击机'),
+    ('Bmober', '轰炸机'),
+    ('Attacker', '强击机'),
+    ('SpyPlane', '电子战及指挥'),
+    ('Destroyer', '驱逐舰'),
+    ('MainBattleTank', '主战坦克'),
 )
 
 
