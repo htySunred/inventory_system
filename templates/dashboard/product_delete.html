@@ -1,0 +1,24 @@
+{% extends 'partials/base.html' %}
+{% block title %}登出页{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row-mt-5">
+        <div class="col-md-6 offset-md-3">
+            <div class="border bg-white p-3">
+
+                <h3>删除商品</h3>
+                 <form method="POST" class="uniForm" action="">
+                    {% csrf_token %}
+                    <h4>你要删除[{{item.name}}]？</h4>
+                    <a class="btn btn-info" href="{% url 'dashboard-product' %}">取消</a>
+                    <input class="btn btn-danger" type="submit" value="确定删除">
+                 </form>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

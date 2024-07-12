@@ -1,0 +1,20 @@
+{% extends 'partials/base.html' %}
+{% block title %}登出页{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row-mt-5">
+        <div class="col-md-6 offset-md-3">
+            <div class="border bg-white p-3">
+
+                <h3>登出页</h3>
+                <hr>
+                 <div class="alert alert-success">
+                     <h4>你已经出来了！</h4>
+                 </div>
+                    <a href="{% url 'user-login'%}">登陆</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

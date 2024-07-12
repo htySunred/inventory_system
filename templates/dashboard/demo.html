@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--所有css放在工程目录下的static/css中-->
+    <link type="text/css" rel="stylesheet" href="/static/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="/static/css/bootstrap.min.css" />
+    <title>Title</title>
+</head>
+<body>
+<!--button的样式是bootstrap中的-->
+<button class="btn btn-danger rounded-pill px-3" type="button">Danger</button>
+<!--js 点击按钮弹出-->
+<button id="myButton">点击我</button>
+
+<script>
+    // 获取按钮元素
+    var button = document.getElementById('myButton');
+
+    // 添加点击事件监听器
+    button.addEventListener('click', function() {
+      // 弹出提示框
+      alert('你点击了按钮！');
+    });
+  </script>
+<!--下面的样式h1,p来自己写的style.css-->
+<h1>lindafang</h1>
+
+<p>{{name}} first paragraph.<br>
+    千里路途我只陪你一程<br>
+    风雪艳阳我都不再过问
+</p>
+
+<!--外链音乐 -->
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1475596788&auto=1&height=66"></iframe>
+<!--输入框，按钮-->
+用户名:<input value=''>
+密码:<input value=''>
+<button type='submit' >提交</button>
+<!--图片音频视频放在static文件夹下面了直接能找到，static在初始化中加载-->
+<img height="300" width="300" src="{% static '原神.jpeg' %}" alt="My image">
+<embed height="100" width="300" src="{% static '海阔天空.mp3' %}"} />
+<embed src="{% static '一花一剑.mp4' %}" height="200" width="200"/>
+</body>
+</html>

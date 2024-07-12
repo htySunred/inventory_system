@@ -1,0 +1,66 @@
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="row my-4">
+    <div class="col-md-4">
+        {% for message in messages%}
+        {% if message %}
+        <div class="alert alert-{{message.tags}}">
+            {{message}}
+        </div>
+        {% endif %}
+        {% endfor%}
+
+        <div class="card">
+            <div class="card-header uniForm text-info">
+                添加订单
+            </div>
+            <div class="card-body">
+                <form method="POST" class="uniForm text-info">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <input class="btn btn-info" type="submit" value="添加订单">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                订单记录
+            </div>
+            <div class="card-body">
+                <table class="table bg-white">
+                    <thead class="bg-info text-white">
+                    <tr>
+                        <!--<th scope="col">需求提交人</th>-->
+                        <th scope="col">商品名</th>
+                        <th scope="col">商品类型</th>
+                        <th scope="col">数量</th>
+                        <th scope="col">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for order in orders %}
+                    {% if order.staff == user%}
+                    <tr>
+                        <!--<td>{{order.staff.username}}</td>-->
+                        <td>{{order.product.name}}</td>
+                        <td>{{order.product.get_category_display}}</td>
+                        <td>{{order.order_quantity}}</td>
+
+                        <th scope="row">
+                            <a class="btn btn-info btn-sm" href="{% url 'dashboard-order-update' order.id %}">编辑</a>
+                            <a class="btn btn-danger btn-sm"
+                               href="{% url 'dashboard-order-delete' order.id %}">删除</a>
+                        </th>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
